@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useGetTours } from "../hooks/useGetTours";
 import { useGetTourCount } from "../hooks/useGetTourCount";
 import Loader from "../components/Loader";
+import { Link } from "react-router-dom";
 
 function ToursPage() {
   const [pageCount, setPageCount] = useState(0);
@@ -27,9 +28,21 @@ function ToursPage() {
     <>
       <CommonSection title={"All Tours"} />
       <section>
-        <Container>
+        <Container
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           <Row>
             <SearchBar />
+          </Row>
+          <Row>
+            {" "}
+            <Link to="/add-tour" className="add__tour">
+              Add Tour
+            </Link>
           </Row>
         </Container>
       </section>

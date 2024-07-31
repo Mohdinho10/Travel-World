@@ -1,5 +1,5 @@
 import "../styles/Home.css";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Button } from "reactstrap";
 import Subtitle from "../shared/Subtitle";
 import heroImg from "../assets/images/hero-img01.jpg";
 import heroImg2 from "../assets/images/hero-img02.jpg";
@@ -12,6 +12,7 @@ import FeaturedTours from "../components/FeaturedTours";
 import MasonryImagesGallery from "../components/MasonryImagesGallery";
 import Testimonials from "../components/Testimonials";
 import NewsLetter from "../shared/NewsLetter";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   return (
@@ -80,6 +81,13 @@ function HomePage() {
             </Col>
             <FeaturedTours />
           </Row>
+          <Link
+            to="/tours"
+            // className="all_tours_btn"
+            style={{ textDecoration: "none" }}
+          >
+            <Button className="all_tours_btn">Browse All Tours</Button>
+          </Link>
         </Container>
       </section>
 

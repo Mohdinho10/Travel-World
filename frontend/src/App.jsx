@@ -12,6 +12,7 @@ import AppLayout from "./components/AppLayout";
 import "react-toastify/dist/ReactToastify.css";
 import ThankYou from "./pages/ThankYou";
 import { UserProvider } from "./context/UserContext";
+import AddTourPage from "./pages/AddTourPage";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,6 +37,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route path="/tours/search" element={<SearchResultListPage />} />
+              <Route path="/add-tour" element={<AddTourPage />} />
             </Route>
           </Routes>
         </BrowserRouter>

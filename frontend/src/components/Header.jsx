@@ -1,5 +1,5 @@
 import { Container, Row, Button } from "reactstrap";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import "./Header.css";
 import { useEffect, useRef } from "react";
@@ -7,20 +7,20 @@ import { useLogout } from "../hooks/useLogout";
 import { useUser } from "../context/UserContext";
 import ClipLoader from "react-spinners/ClipLoader";
 
-const navLinks = [
-  {
-    path: "/",
-    display: "Home",
-  },
-  {
-    path: "/about",
-    display: "About",
-  },
-  {
-    path: "/tours",
-    display: "Tours",
-  },
-];
+// const navLinks = [
+//   {
+//     path: "/",
+//     display: "Home",
+//   },
+//   {
+//     path: "/about",
+//     display: "About",
+//   },
+//   {
+//     path: "/tours",
+//     display: "Tours",
+//   },
+// ];
 
 function Header() {
   const { logout, isLogout } = useLogout();
@@ -54,13 +54,13 @@ function Header() {
       <Container>
         <Row>
           <div className="nav__wrapper d-flex align-items-center justify-content-between">
-            <div className="logo">
+            <Link to="/" className="logo">
               <img src={logo} alt="logo" />
-            </div>
+            </Link>
 
             {/* Menu */}
             <div className="navigation" ref={menuRef} onClick={toggleMenu}>
-              <ul className="menu d-flex align-items-center gap-5">
+              {/* <ul className="menu d-flex align-items-center gap-5">
                 {navLinks.map((item, index) => (
                   <li className="nav__item" key={index}>
                     <NavLink
@@ -73,16 +73,13 @@ function Header() {
                     </NavLink>
                   </li>
                 ))}
-              </ul>
+              </ul> */}
             </div>
             <div className="nav__right d-flex align-items-center gap-4">
               <div className="nav__btn d-flex align-items-center gap-4">
                 {user ? (
                   <>
-                    <h5 className="mb-0">
-                      <i className="ri-user-3-fill"></i>
-                      {user.username}
-                    </h5>
+                    <h5 className="mb-0">{user.username}</h5>
                     <Button className="btn btn__dark" onClick={logout}>
                       {isLogout ? (
                         <ClipLoader color="#ffffff" size={20} />

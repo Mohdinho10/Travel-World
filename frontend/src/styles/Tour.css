@@ -18,3 +18,17 @@
   background-color: var(--secondary-color);
   color: #fff !important;
 }
+
+.add__tour {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: auto !important;
+  background: #ff6701 !important;
+  border: none !important;
+  border-radius: 50px !important;
+  width: 30%;
+  padding: 0.6rem 4rem !important;
+  text-decoration: none;
+  color: #fff;
+}
