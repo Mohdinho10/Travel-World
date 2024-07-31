@@ -1,0 +1,53 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { ToastContainer } from "react-toastify";
+import HomePage from "./pages/HomePage";
+import ToursPage from "./pages/ToursPage";
+import TourDetailsPage from "./pages/TourDetailsPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import SearchResultListPage from "./pages/SearchResultListPage";
+import AppLayout from "./components/AppLayout";
+import "react-toastify/dist/ReactToastify.css";
+import ThankYou from "./pages/ThankYou";
+import { UserProvider } from "./context/UserContext";
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 0,
+    },
+  },
+});
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ReactQueryDevtools initialIsOpen={false} />
+      <UserProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route index element={<HomePage />} />
+              <Route path="/tours" element={<ToursPage />} />
+              <Route path="/tours/:id" element={<TourDetailsPage />} />
+              <Route path="/thank-you" element={<ThankYou />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/register" element={<RegisterPage />} />
+              <Route path="/tours/search" element={<SearchResultListPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </UserProvider>
+      <ToastContainer
+        position="top-right"
+        autoClose={1000}
+        closeOnClick
+        pauseOnHover={false}
+      />
+    </QueryClientProvider>
+  );
+}
+
+export default App;
