@@ -1,4 +1,5 @@
 import { Router } from "express";
+import multer from "multer";
 import {
   createTour,
   deleteTour,
@@ -13,7 +14,22 @@ import { verifyAdmin } from "../middleware/authMiddleware.js";
 
 const router = Router();
 
-router.route("/").get(getTours).post(verifyAdmin, createTour);
+/* Configuration Multer for File Upload */
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "public/uploads"); // Store uploaded files in the 'uploads' folder
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname); // Use the original file name
+  },
+});
+
+const upload = multer({ storage });
+
+router
+  .route("/")
+  .get(getTours)
+  .post(verifyAdmin, upload.single("photo"), createTour);
 // Tour by search
 router.get("/search", getTourBySearch);
 router.get("/featured", getFeaturedTours);

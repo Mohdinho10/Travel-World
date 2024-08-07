@@ -9,7 +9,7 @@ export function useSearchBar() {
     queryFn: async (data) => {
       try {
         const res = await axios.get(
-          `${BASE_URL}/tours/search?city=${data.location}&distance=${data.distance}&maxGroupSize=${data.maxGroupSize}`,
+          `${BASE_URL}/api/tours/search?city=${data.location}&distance=${data.distance}&maxGroupSize=${data.maxGroupSize}`,
           {
             withCredentials: true,
           }

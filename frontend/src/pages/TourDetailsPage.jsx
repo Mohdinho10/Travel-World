@@ -12,6 +12,7 @@ import { useGetTour } from "../hooks/useGetTour";
 import Loader from "../components/Loader";
 import { useUser } from "../context/UserContext";
 import { useReview } from "../hooks/useReview";
+import { BASE_URL } from "../utils/config";
 
 function TourDetailsPage() {
   const { id } = useParams();
@@ -72,7 +73,11 @@ function TourDetailsPage() {
             <Row>
               <Col lg="8">
                 <div className="tour__content">
-                  <img src={photo} alt="" />
+                  <img
+                    // src={photo}
+                    alt=""
+                    src={`${BASE_URL}/${photo?.replace("public", "")}`}
+                  />
 
                   <div className="tour__info">
                     <h2>{title} </h2>

@@ -10,12 +10,15 @@ import { useGetTours } from "../hooks/useGetTours";
 import { useGetTourCount } from "../hooks/useGetTourCount";
 import Loader from "../components/Loader";
 import { Link } from "react-router-dom";
+import { useUser } from "../context/UserContext";
 
 function ToursPage() {
   const [pageCount, setPageCount] = useState(0);
   const [page, setPage] = useState(0);
   const { isPending, tours } = useGetTours(page);
   const { isPending: isLoadingTourCount, tourCount } = useGetTourCount();
+  const { user } = useUser();
+
   // console.log(tourCount.length);
 
   useEffect(() => {
@@ -38,12 +41,14 @@ function ToursPage() {
           <Row>
             <SearchBar />
           </Row>
-          <Row>
-            {" "}
-            <Link to="/add-tour" className="add__tour">
-              Add Tour
-            </Link>
-          </Row>
+          {user.role === "admin" && (
+            <Row>
+              {" "}
+              <Link to="/add-tour" className="add__tour">
+                Add Tour
+              </Link>
+            </Row>
+          )}
         </Container>
       </section>
 

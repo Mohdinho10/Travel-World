@@ -10,9 +10,13 @@ export function useBookTour() {
   const { mutate: book, isPending: isBook } = useMutation({
     mutationFn: async (bookingData) => {
       try {
-        const { data } = await axios.post(`${BASE_URL}/booking`, bookingData, {
-          withCredentials: true,
-        });
+        const { data } = await axios.post(
+          `${BASE_URL}/api/booking`,
+          bookingData,
+          {
+            withCredentials: true,
+          }
+        );
         navigate("/thank-you", { replace: true });
         console.log(data);
       } catch (error) {

@@ -10,7 +10,7 @@ export function useReview(id) {
     mutationFn: async ({ reviewId, reviewData }) => {
       try {
         const res = await axios.post(
-          `${BASE_URL}/reviews/${reviewId}`,
+          `${BASE_URL}/api/reviews/${reviewId}`,
           reviewData,
           {
             withCredentials: true,

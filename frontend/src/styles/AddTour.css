@@ -1,0 +1,81 @@
+.tour__form {
+  padding: 50px;
+  background: var(--secondary-color);
+  position: relative;
+}
+
+.tour__container {
+  box-shadow: rgba(17, 12, 46, 0.15);
+  margin-top: 100px;
+}
+
+.tour__form h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tour__form {
+  width: 100%;
+}
+
+.tour__form input {
+  width: 90%;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  color: var(--heading-color);
+}
+
+.tour__form input:focus {
+  outline: none;
+}
+
+.auth__btn {
+  background-color: var(--heading-color) !important;
+  width: 40%;
+  color: #fff !important;
+}
+
+.tour__form p {
+  font-size: 0.9rem;
+  color: #fff;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.tour__form p a {
+  color: var(--heading-color);
+  text-decoration: none;
+  margin-left: 5px;
+  font-weight: 500;
+}
+
+.addPhoto {
+  width: 60px;
+  height: 50px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 768px) {
+  .tour__form {
+    width: 70%;
+    margin: auto;
+  }
+
+  .tour__container {
+    padding-bottom: 3rem;
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .tour__form {
+    width: 100%;
+  }
+
+  .tour__container {
+    padding-bottom: 1rem;
+  }
+}

@@ -8,7 +8,7 @@ export function useGetTours(page) {
     queryKey: ["tours", page],
     queryFn: async () => {
       try {
-        const { data } = await axios.get(`${BASE_URL}/tours?page=${page}`, {
+        const { data } = await axios.get(`${BASE_URL}/api/tours?page=${page}`, {
           withCredentials: true,
         });
         return data.tours;

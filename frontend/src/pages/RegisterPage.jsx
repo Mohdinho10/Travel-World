@@ -68,7 +68,7 @@ function RegisterPage() {
                   </FormGroup>
                   <Button className=" auth__btn" type="submit">
                     {!isRegister ? (
-                      "Create Account"
+                      "Register"
                     ) : (
                       <ClipLoader color="#ffffff" size={20} />
                     )}

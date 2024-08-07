@@ -18,7 +18,9 @@ const port = process.env.PORT;
 
 // middleware
 app.use(express.json());
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
+
 // cookie parser middleware
 app.use(cookieParser());
 app.use(
@@ -38,22 +40,21 @@ if (process.env.NODE_ENV === "production") {
   const __dirname = path.resolve();
   // app.use(express.static(path.join(__dirname, "frontend", "dist"))); // Serve frontend build
   app.use(express.static(path.join(__dirname, "/frontend/dist")));
-  // app.use(
-  //   "/uploads",
-  //   express.static(path.join(__dirname, "public", "uploads"))
-  // ); // Serve uploads
+  app.use(
+    "/uploads",
+    express.static(path.join(__dirname, "public", "uploads"))
+  ); // Serve uploads
 
   app.get("*", (req, res) =>
     res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"))
   );
+} else {
+  const __dirname = path.resolve();
+  app.use(
+    "/uploads",
+    express.static(path.join(__dirname, "public", "uploads"))
+  ); // Serve uploads in development
 }
-// else {
-//   const __dirname = path.resolve();
-//   app.use(
-//     "/uploads",
-//     express.static(path.join(__dirname, "public", "uploads"))
-//   ); // Serve uploads in development
-// }
 
 app.use(notFound);
 app.use(errorHandler);

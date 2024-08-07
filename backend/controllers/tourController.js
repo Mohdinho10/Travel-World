@@ -2,7 +2,15 @@ import Tour from "../models/tourModel.js";
 import asyncHandler from "../middleware/asyncHandler.js";
 
 export const createTour = asyncHandler(async (req, res) => {
-  const newTour = await Tour.create(req.body);
+  const photo = req.file.path;
+  console.log(photo);
+
+  if (!photo) {
+    res.status(400);
+    throw new Error("No file uploaded");
+  }
+
+  const newTour = await Tour.create({ ...req.body, photo });
 
   // checking if there's tour
   if (!newTour) {

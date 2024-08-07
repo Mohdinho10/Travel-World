@@ -8,7 +8,7 @@ export function useGetTourCount() {
     queryKey: ["tours"],
     queryFn: async () => {
       try {
-        const { data } = await axios.get(`${BASE_URL}/tours/count`, {
+        const { data } = await axios.get(`${BASE_URL}/api/tours/count`, {
           withCredentials: true,
         });
         console.log(data);

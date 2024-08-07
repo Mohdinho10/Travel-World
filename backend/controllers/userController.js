@@ -25,7 +25,14 @@ export const register = asyncHandler(async (req, res) => {
     throw new Error("Invalid user data");
   }
 
-  res.status(200).json({ user, message: "User registered successfully" });
+  res.status(200).json({
+    _id: user._id,
+    name: user.username,
+    email: user.email,
+    role: user.role,
+  });
+
+  // res.status(200).json({ user, message: "User registered successfully" });
 });
 
 export const login = asyncHandler(async (req, res) => {
@@ -39,7 +46,7 @@ export const login = asyncHandler(async (req, res) => {
   const user = await User.findOne({ email });
 
   if (user && (await user.matchPassword(password))) {
-    const { password, role, ...rest } = user._doc;
+    const { password, ...rest } = user._doc;
 
     generateToken(res, user._id);
 
