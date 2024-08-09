@@ -41,7 +41,7 @@ function ToursPage() {
           <Row>
             <SearchBar />
           </Row>
-          {user.role === "admin" && (
+          {user?.role === "admin" && (
             <Row>
               {" "}
               <Link to="/add-tour" className="add__tour">
