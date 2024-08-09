@@ -25,9 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin:
-      "https://travel-world-production.up.railway.app" ||
-      "http://localhost:5173", // Replace with your frontend URL
+    origin: "http://localhost:5173", // Replace with your frontend URL
     credentials: true, // Allow credentials (cookies, authorization headers, etc.)
   })
 );
