@@ -148,6 +148,9 @@
   .experience__img {
     margin-top: 2rem;
   }
+  .all_tours_btn {
+    width: 50%;
+  }
 }
 
 @media only screen and (max-width: 576px) {
@@ -161,5 +164,9 @@
   .testimonial__title,
   .experience__content h2 {
     font-size: 1.5rem;
+  }
+
+  .all_tours_btn {
+    width: 50%;
   }
 }

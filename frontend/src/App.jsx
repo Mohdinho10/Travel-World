@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { ToastContainer } from "react-toastify";
+import { UserProvider } from "./context/UserContext";
 import HomePage from "./pages/HomePage";
 import ToursPage from "./pages/ToursPage";
 import TourDetailsPage from "./pages/TourDetailsPage";
@@ -9,10 +10,11 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import SearchResultListPage from "./pages/SearchResultListPage";
 import AppLayout from "./components/AppLayout";
-import "react-toastify/dist/ReactToastify.css";
 import ThankYou from "./pages/ThankYou";
-import { UserProvider } from "./context/UserContext";
 import AddTourPage from "./pages/AddTourPage";
+import "react-toastify/dist/ReactToastify.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const queryClient = new QueryClient({
   defaultOptions: {

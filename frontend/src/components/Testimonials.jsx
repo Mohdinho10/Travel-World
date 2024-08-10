@@ -11,27 +11,38 @@ function Testimonials() {
     speed: 1000,
     swipeToSlide: true,
     autoplaySpeed: 2000,
-    slidesToShow: 3,
+    slidesToShow: 3, // Default for large screens
+    slidesToScroll: 1,
 
     responsive: [
       {
-        breakPoint: 992,
+        breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
+          slidesToShow: 3,
+          slidesToScroll: 3,
           infinite: true,
           dots: true,
         },
       },
       {
-        breakPoint: 576,
+        breakpoint: 600,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
         },
       },
     ],
   };
+
   return (
     <Slider {...settings}>
       <div className="testimonial py-4 px-3">
@@ -39,8 +50,7 @@ function Testimonials() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
           aspernatur natus aliquid voluptatem eveniet rem dicta eligendi
           doloribus dolor! Nemo excepturi voluptatem doloribus cum distinctio
-          dolore neque nobis consectetur eveniet? Accusantium minima consequatur
-          fugiat sapiente cupiditate. Blanditiis animi ut ratione.
+          dolore neque nobis consectetur
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava1} alt="" className="w-25 h-25 rounded-2" />
@@ -56,8 +66,7 @@ function Testimonials() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
           aspernatur natus aliquid voluptatem eveniet rem dicta eligendi
           doloribus dolor! Nemo excepturi voluptatem doloribus cum distinctio
-          dolore neque nobis consectetur eveniet? Accusantium minima consequatur
-          fugiat sapiente cupiditate. Blanditiis animi ut ratione.
+          dolore neque nobis consectetur
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava2} alt="" className="w-25 h-25 rounded-2" />
@@ -73,8 +82,7 @@ function Testimonials() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
           aspernatur natus aliquid voluptatem eveniet rem dicta eligendi
           doloribus dolor! Nemo excepturi voluptatem doloribus cum distinctio
-          dolore neque nobis consectetur eveniet? Accusantium minima consequatur
-          fugiat sapiente cupiditate. Blanditiis animi ut ratione.
+          dolore neque nobis consectetur
         </p>
         <div className="d-flex align-items-center gap-4 mt-3">
           <img src={ava3} alt="" className="w-25 h-25 rounded-2" />
